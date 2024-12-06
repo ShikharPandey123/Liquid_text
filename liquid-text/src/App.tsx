@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useGesture, UseGestureConfig } from "@use-gesture/react";
+import { useGesture } from "@use-gesture/react";
 import { animated, useSpring } from "react-spring";
 
 const App: React.FC = () => {
-  const [scale, setScale] = useState<number>(1); // Controls text spacing
-  const [isOverlap, setIsOverlap] = useState<boolean>(false); // Toggles overlapping
+  const [scale, setScale] = useState<number>(1);
+  const [isOverlap, setIsOverlap] = useState<boolean>(false);
 
   // Spring animation for smooth scaling
   const { lineHeight } = useSpring({
@@ -20,11 +20,12 @@ const App: React.FC = () => {
 
   // Handle pinch gesture using `useGesture`
   const bind = useGesture({
-    onPinch: ({ offset: [distance] }: { offset: [number] }) => {
+    onPinch: ({ offset }: { offset: [number, number] }) => { // Corrected offset type
+      const distance = offset[0]; // You can use either X or Y, typically X is fine
       const newScale = Math.max(0.5, Math.min(3, 1 + distance / 200));
       setScale(newScale);
     },
-  } as UseGestureConfig);
+  });
 
   // Reset functionality
   const resetSpacing = (): void => {
@@ -56,7 +57,7 @@ const App: React.FC = () => {
         style={{ height: "70vh" }}
       >
         <animated.div
-          style={{ lineHeight }} // Dynamically adjust line height
+          style={{ lineHeight }}
           className="text-gray-800 text-lg leading-relaxed space-y-4"
         >
           {Array.from({ length: 20 }).map((_, i) => (
