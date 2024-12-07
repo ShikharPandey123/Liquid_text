@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
     "@use-gesture/react": "^10.3.1",
     "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "lottie-react": "^2.4.0",
+    "pdfjs-dist": "^4.9.155",
     "postcss": "^8.4.49",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

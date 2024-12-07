@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGesture } from "@use-gesture/react";
+import { useGesture } from "@use-gesture/react"; // Correct import
 import { animated, useSpring } from "react-spring";
 
 const App: React.FC = () => {
@@ -20,8 +20,7 @@ const App: React.FC = () => {
 
   // Handle pinch gesture using `useGesture`
   const bind = useGesture({
-    onPinch: ({ offset }: { offset: [number, number] }) => { // Corrected offset type
-      const distance = offset[0]; // You can use either X or Y, typically X is fine
+    onPinch: ({ offset: [distance, _] }: { offset: [number, number] }) => {
       const newScale = Math.max(0.5, Math.min(3, 1 + distance / 200));
       setScale(newScale);
     },
@@ -34,17 +33,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="flex gap-4 mb-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-400 to-indigo-600 p-8">
+      <div className="flex gap-6 mb-8">
         <button
-          className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-500 transition"
+          className="px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 text-white rounded-full shadow-xl hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50"
           onClick={() => setIsOverlap(!isOverlap)}
         >
           {isOverlap ? "Disable Overlap" : "Enable Overlap"}
         </button>
 
         <button
-          className="px-4 py-2 bg-green-600 text-white rounded-md shadow-md hover:bg-green-500 transition"
+          className="px-6 py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full shadow-xl hover:from-green-600 hover:to-teal-600 transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50"
           onClick={resetSpacing}
         >
           Reset
@@ -53,7 +52,7 @@ const App: React.FC = () => {
 
       <div
         {...bind()}
-        className="w-full max-w-3xl bg-white shadow-lg rounded-lg p-6 overflow-y-scroll text-center border border-gray-300 relative"
+        className="w-full max-w-3xl bg-white shadow-lg rounded-lg p-8 overflow-y-scroll text-center border border-gray-300 relative"
         style={{ height: "70vh" }}
       >
         <animated.div
@@ -76,7 +75,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-gray-500 mt-4 text-sm">
+      <div className="text-white mt-4 text-sm">
         Use a two-finger pinch gesture to adjust line spacing.
       </div>
     </div>
