@@ -10,29 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.5",
     "@use-gesture/react": "^10.3.1",
-    "autoprefixer": "^10.4.20",
-    "clsx": "^2.1.1",
-    "lottie-react": "^2.4.0",
-    "pdfjs-dist": "^4.9.155",
-    "postcss": "^8.4.49",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-spring": "^9.7.4",
-    "tailwindcss": "^3.4.16"
+    "react-spring": "^9.7.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "globals": "^15.12.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.15.0",
     "vite": "^6.0.1"
   }
 }
