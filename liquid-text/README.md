@@ -6,7 +6,6 @@ This project demonstrates dynamic text spacing and interaction using pinch gestu
 - **Pinch Gesture Support**: Adjust the line height of the text by performing a pinch gesture (using two fingers).
 - **Overlap Toggle**: Enable or disable text overlap with a button.
 - **Reset**: Reset the line spacing and overlap state to their default values.
-- **Progress Bar**: A dynamic progress bar indicating the scaling factor.
 
 ## Installation
 
